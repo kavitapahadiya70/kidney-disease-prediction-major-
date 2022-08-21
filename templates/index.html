@@ -1,182 +1,173 @@
-
-<!doctype html>
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Machine Learning Project</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
 
-    <style>
-        h2,h4 {
-            text-align: center;
-        }
+    <title>Machine Learning Lab</title>
 
-        p {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 5px;
-            color: #000;
-        }
+<style>
 
-        .form1 {
-            /* background: salmon; */
-            
+       .form1 {
+            /* background: #000000; */
             display: flex;
             justify-content: center;
-            align-items:center;
-            
+            align-items: center;
             height: fit-content;
             flex-direction: column;
             /* width: 500px; */
             border-left-width: 250px;
-            border-right-width: 250px;
             border: 2px solid #ccc;
             /* padding: 30px; */
-            background: #ff0066;
+            background: white;;
             /* border-radius: 15px; */
             /* margin-right: 100px; */
         }
 
-        .row{
-            width: 500px;
-            /* margin-left: 70px; */
-        }
+         .a{
+        color:black;
+        background-color: #D4FC78;
 
-        .head {
-            color: #000;
-            background-color: white;
-            vertical-align: top;
-        }
+         }
+         body{
+    background-color: #D4FC78 ;
+}
+  
 
-        .tail {
-            padding-top: 17px;
-            color: #000;
-            background-color: grey;
-            vertical-align: bottom;
-        }
+</style>
 
-        .ans {
-            color: #ffffff;
-        }
-
-        button{
-            width: 200px;
-            margin-top: 15px;
-        }
-
-        /* style="color: #FFF;background-color: white;" */
-    </style>
 </head>
 
-<body>
-
-    <div class="head">
-    <nav style="width: 100%;" >
-         <a class="  navbar-brand" href="#" style="margin-left: 300px; background-color: gray; margin-top: 0px; margin-right: 0px; margin-bottom: 0px;">
-             <img style="max-height: auto; width:50%;" src="static/image/PIET logo with tagline.jpg" 
-             class="img-responsive" style="margin-top:0px; width: auto; height: auto; min-width:100%; min-height: auto;">
-            </div>  
-
-            
-      
-
+<body >
+    <nav style="width: 100%;" class="navbar navbar-dark bg-secondary">
+         <a class="  navbar-brand" href="#" style="margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-botttom: 0px;">
+             <img style="max-height: auto; width:100%;border-radius: 25px;" src="{{ url_for('static',filename = 'image/PIET logo with tagline.jpg')  }}" 
+             class="img-responsive" style="margin-top:0px;style=width: auto; height: auto; min-width:100%; min-height: auto;"><center>
+                <a href="/aboutusnew" style="color: red; margin-right: 10px;">ABOUT US</a>
+                </center>
+      </div>
            
         </a>
         
     </nav>
-    </div>
-    <div style="background-color: salmon;">
-        <a href="/aboutusnew" style="color: white; align-items: flex-end;">ABOUT US</a>
-        <a href="/mini" style="color: white; align-items: flex-end;">Mini Prediction Projects</a>
-      </div>
 
+    <div class="container-fluid">
+        <div class="row">
+            <div style="border-radius: 25px;" class="col-5 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block">
 
-    <div style="background-image: url(static/image/mus.jpg);">
-            <h1 style="margin-left: 500px; align-items: center; color:white; ">Machine Learning Project</h1>
-           
-               
+                <img src="https://ml8ygptwlcsq.i.optimole.com/fMKjlhs.QRSi~1ce64/w:1000/h:628/q:mauto/https://www.unite.ai/wp-content/uploads/2021/12/robot-headphones.jpg")  }}" class="img-fluid"
+                    style="width: auto; height: 200px; min-width: 400px;min-height: 300px;">
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 " style=" padding: 30px; margin-left: 350px;">
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 " style=" padding: 30px;">
+                <h1  style="color:#000000"><B> <i>Major Project Based On Heart_Disease_Prediction<B><i></h1>
                 <br><br>
-                <h4 style="color:white; text-align:center ; font-family:Georgia, 'Times New Roman', Times, serif;">This project is based on machine learning and data science with python. Through this project we can predict the Music Genre by Using Features of MUsic . Based on this input, our machine will predict Genre OF Music.Automating music classification can help to find valuable data such as trends, popular genres, and artists easily. Determining music genres is the very first step towards this direction.  </h4>
+                <p style="font-size:20px;text-align:justify; color: #808000"><i>It is a Internship project developed at Summer internship 2022 at poornima Institute of Engineering & technology, Jaipur.This  Summer Internship 2022 on Artificial intelligence and Data Science was conducted from 27 June 2022 to 14 August 2022</i>  </p>
               
+                
+                <br><br>
+                
             </div>
-            <hr style="color:white ;">
-
-            <div class="col-12" style="color: #FFF;">
-                <img style="max-height:200px; max-width:1500px; margin-left: 550px; margin-top: 20px; margin-bottom: 20px;" src="static/image/musicg.png" 
-                class="img-responsive" style="margin-top:0px; width: auto; height: auto; min-width:100%; min-height: auto;">
-            </div>
-
+        </div>
+        <div style=" padding: 30px;">
+            <h1  style="color:#000000"><B> <i>Heart Disease Prediction<B><i></h1>
+            
+            <p style="font-size:20px;text-align:justify; color: #808000"><i>According to the CDC, heart disease is one of the leading causes of death for people of most races in the US (African Americans, American Indians and Alaska Natives, and white people). About half of all Americans (47%) have at least 1 of 3 key risk factors for heart disease: high blood pressure, high cholesterol, and smoking. Other key indicator include diabetic status, obesity (high BMI), not getting enough physical activity or drinking too much alcohol. Detecting and preventing the factors that have the greatest impact on heart disease is very important in healthcare. Computational developments, in turn, allow the application of machine learning methods to detect "patterns" from the data that can predict a patient's condition.</i>  </p>
+          
+            
+            <br>
+            
+    </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="card mb-3">
 
-
-    <div class="form1">
+                 <div class="a">
+        <marquee behavior="left" direction=""><B>MAJOR PROJECT based on Heart_Disease_Prediction</B></marquee>
+    </div>
+ 
+                        <div class="card-body">
+                            <h5 class="card-title"; style="text-align:center">Model Deployment</h5>
+                           
+                            <!-- Main Input For Receiving Query to our ML -->
+   <div class="form1" style="border-radius: 25px;">
         <form action="{{ url_for('predict')}} "method="get" class="row g-3 my-4">
-         
 
-            <h3 style="color: white;font-family:Georgia, 'Times New Roman', Times, serif;">Features</h3>
-
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">danceability</label>
-                <input type="number" class="form-control" id="danceability" name="danceability" step="any" required="required" min="0" max="2000" placeholder="Enter danceability (0-1)">
+            <div class="col-12" style="color: #000; border-radius: 25px;">
+                <label for="floatingInput" class="form-label">age</label>
+                <input type="number" class="form-control" id="age" name="age" step="any" min="12" max="100" required="required" placeholder="Enter Age">
             </div>
-
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">energy</label>
-                <input type="number" class="form-control" id="energy" name="energy" step="any" required="required" min="0" max="3" placeholder="Enter energy(0-1)">
-            </div>
-
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">mode</label>
-                <input type="number" class="form-control" id="mode" name="mode" step="any" required="required" min="0" max="1" placeholder="Enter mode(0 or 1)">
-            </div>
-
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">speechiness</label>
-                <input type="number" class="form-control" id="speechiness" name="speechiness" step="any" required="required" min="0" max="64" placeholder="Enter speechiness(0-4)">
-            </div>
-
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">acoustiness</label>
-                <input type="number" class="form-control" id="acoustiness" name="acoustiness" step="any" required="required" min="0" max="2" placeholder="Enter acoustiness(0-1)">
-            </div>
-            
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">liveness</label>
-                <input type="number" class="form-control" id="liveness" name="liveness" step="any" required="required" min="0" max="20" placeholder="Enter liveness(0-1)">
-            </div>
-
-            <div class="col-12" style="color: #FFF;">
-                <label for="floatingInput" class="form-label">valence</label>
-                <input type="number" class="form-control" id="valence" name="valence" step="any" required="required" min="0" max="8" placeholder="Enter number of valence(0-1)">
-            </div>
+         <br>
+         <br>
 
             
-
-            <div class="col-md-4" style="color: #FFF;">
-                <label for="inputState" class="form-label">Choose a Model for Prediction</label>
-                <select id="Model" name ="Model" step = "any" class="form-select" required>
-                    <option selected>Decision Tree</option>
-                    <option>KNN</option>
-                    <option>SVM</option>
-                    <option>Random Forest</option>
-                    <option>Naive Bayes</option>
+            <div class="col-12" style="color: #000;">
+                <label for="floatingInput" class="form-label">sex</label>
+                <select id="sex" name ="sex" class="form-select" required>
+                    <option value="1">MALE</option>
+                    <option value="0">FEMALE</option>
                 </select>
             </div>
+            <br>
+            <br>
+            
 
-            <div class="col-12" >
-                <button type="submit" value="NB" name="NB" class="btn btn-outline-danger">Submit</button>
+
+            <div class="col-12" style="color: #000;">
+                <label for="floatingInput" class="form-label">chest_pain</label>
+                <input type="number" class="form-control" id="chest_pain" name="chest_pain" step="any" required="required" min="0" max="4" placeholder="Enter the chest pain level">
             </div>
+            <br>
+            <br>
+
+
+            <div class="col-12" style="color: #000;">
+                <label for="floatingInput" class="form-label">bp</label>
+                <input type="number" class="form-control" id="bp" name="bp" step="any" required="required" min="80" max="180" placeholder="Enter the bp Score">
+            </div>
+            <br>
+            <br>
+            
+            <div class="col-12" style="color: #000;">
+                <label for="floatingInput" class="form-label">st</label>
+                <input type="number" class="form-control" id="st" name="st" step="any" required="required" min="0" max="6" placeholder="Enter the depression level">
+            </div>
+            <br>
+            <br>
+
+
+            <div class="col-md-4" style="color: #000;">
+                <label for="inputState" class="form-label">Choose a Model</label>
+                <select id="Model" name ="Model" step = "any" class="form-select" required>
+                    <option selected>Random Forest Classifier</option>
+                    <option>Decision Tree Classifier</option>
+                    <option>KNN Classifier</option>
+                    <option>SVM Classifier</option>
+                    <option>Naive Bayes Classifier</option>
+                </select>
+            </div>
+            <br>
+            <br>
+
+            <div class="col-12">
+                <center>
+                <button type="submit" value="NB" name="NB" class="btn btn-outline-primary">Submit</button>
+            </center>
+            </div>
+            <br>
         </form>
         
         
-        <p style="color: #FFF;">
+        <p style="color: black;">
           {{prediction_text}}
           {{extra_text}}
         </p>
@@ -184,46 +175,87 @@
     </div>
 
 
-    <div class="col-md-12;">
-        <center><h3 class="section-title" style="text-align: center; margin-top: 30px;">Sponsored by</h3></center>
-      </div>
-    
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
+           
     <br>
-    <br>
-
-<div>
- <table style="padding-bottom: 20px; margin-bottom: 60px; ">
-<tr>
-    <th>
-        <img style="max-height: 200px; margin-left:500px; padding-bottom: 5px; " src="static/image/AICTEIdeaLabFooterLogo.png" alt="...">
-    </th>
-
-    <th>
-        <img style="max-height: 200px; margin-left:0px;" src="static/image/eNBA_logo.png" alt="..." height="300" width="300" >
-
-    </th>
-</tr>
-
- </table>
-      </div>
-      
-
-  
-         
-
     
-      <div class="fixed-bottom ">
-        <div class="bg-secondary " style="min-height: 40px; background-color: rgb(172, 169, 169);">
+    <div class="col-md-12">
+              <center><h3 class="section-title" style="text-align: center; color:black;">Sponsored By</h3></center>
+            </div>
+          
+          <br>
+          <br>
+    
+      <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="card mb-3">
+            
+                    <div class="card">
+                        <img style="max-height: 200px; border-radius: 25px;" src="{{ url_for('static',filename = 'image/AICTEIdeaLabFooterLogo.png')  }}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">IDEA LAB</h5>
+                            
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-md-4">
+                <div class="card mb-3">
+            
+                    <div class="card">
+                        <img style="max-height: 200px; border-radius: 25px;" src="{{ url_for('static',filename = 'image/nbanew.png')  }}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align:center">NBA</h5>
+                            
+                        </div>
+            
+            
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-10 col-md-3">
+                <div class="card mb-3">
 
-            <marquee style="color:#fff; margin-top: 7px;">
-                <h9>Developed by Neha Khatri, Student of Computer Engineering, PIET</h9>
+                    <div class="card">
+                        <img style="max-height: 200px; border-radius: 25px;"
+                            src="{{ url_for('static',filename = 'image/aicte-logo.png')  }}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"; style="text-align:center; color:black;">AICTE MODROB DEEP LEARNING LAB</h5>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        
+               
+    
+    <br><br><br><br><br>
+    <div class="fixed-bottom ">
+        <div class="bg-secondary " style="min-height: 40px;">
+
+            <marquee style="background-color:skyblue; color:Black; margin-top: 7px;">
+                <h9>Developed by HARIOM SUTHAR ❥ , Student of PGI</h9>
             </marquee>
         </div>
     </div>
+    <!-- change later-->
+    <script src="{{ url_for('static',filename = 'js/bootstrap.bundle.min.js')  }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

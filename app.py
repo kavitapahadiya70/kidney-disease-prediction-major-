@@ -1,101 +1,68 @@
-import numpy as np
 from flask import Flask, request, jsonify, render_template
+#from flask_ngrok import run_with_ngrok
+import numpy as np
 import pickle
 
 
 app = Flask(__name__)
-classifier_dt = pickle.load(open('musicdt.pkl','rb'))
-classifier_knn = pickle.load(open('musicknn.pkl','rb'))
-classifier_svm = pickle.load(open('musicsvm.pkl','rb'))
-classifier_rf = pickle.load(open('musicrf.pkl','rb'))
-classifier_NB = pickle.load(open('musicnb.pkl','rb'))
+#run_with_ngrok(app)
 
-@app.route('/predict1')
+    
+model_RF=pickle.load(open('Major_RF.pkl', 'rb')) 
+model_KNN=pickle.load(open('Major_KNN.pkl', 'rb')) 
+model_K_SVM=pickle.load(open('Major_SVM_linear.pkl', 'rb')) 
+model_DT=pickle.load(open('Major_DT.pkl', 'rb')) 
+model_NB=pickle.load(open('Major_NB.pkl', 'rb')) 
+
+
+
+@app.route('/')
 def home():
   
     return render_template("index.html")
+#------------------------------About us-------------------------------------------
+@app.route('/aboutusnew')
+def aboutusnew():
+    return render_template('aboutusnew.html')
   
 @app.route('/predict',methods=['GET'])
+
 def predict():
-
-    danceability = float(request.args.get('danceability'))
-    energy = float(request.args.get('energy'))
-    mode = int(request.args.get('mode'))
-    speechiness = float(request.args.get('speechiness'))
-    acostiness = float(request.args.get('acoustiness'))
-    liveness = float(request.args.get('liveness'))
-    valence = float(request.args.get('valence'))
-
-
     
+     
+    age = float(request.args.get('age'))
+    sex = float(request.args.get('sex'))
+    chest_pain = float(request.args.get('chest_pain'))
+    bp = float(request.args.get('bp'))
+    st = float(request.args.get('st'))
 
-# CreditScore	Geography	Gender	Age	Tenure	Balance	NumOfProducts	HasCrCard	IsActiveMember	EstimatedSalary	
+
+ 
     Model = (request.args.get('Model'))
 
-    if Model=="Random Forest":
-      prediction = classifier_dt.predict([[danceability, energy, mode, speechiness, acoustiness, liveness, valence]])
+    if Model=="Random Forest Classifier":
+      prediction = model_RF.predict([[age, sex, chest_pain, bp, st]])
 
-    elif Model=="Decision Tree":
-      prediction = classifier_knn.predict([[danceability, energy, mode, speechiness, acoustiness, liveness, valence]])
+    elif Model=="Decision Tree Classifier":
+      prediction = model_DT.predict([[age, sex, chest_pain, bp, st]])
 
-    elif Model=="KNN":
-      prediction = classifier_svm.predict([[danceability, energy, mode, speechiness, acoustiness, liveness, valence]])
+    elif Model=="KNN Classifier":
+      prediction = model_KNN.predict([[age, sex, chest_pain, bp, st]])
 
-    elif Model=="SVM":
-      prediction = classifier_rf.predict([[danceability, energy, mode, speechiness, acoustiness, liveness, valence]])
+    elif Model=="SVM Classifier":
+      prediction = model_K_SVM.predict([[age, sex, chest_pain, bp, st]])
 
     else:
-      prediction = classifier_NB.predict([[danceability, energy, mode, speechiness, acoustiness, liveness, valence]])
+      prediction = model_NB.predict([[age, sex, chest_pain, bp, st]])
 
     
     if prediction == [0]:
-      return render_template('index.html', prediction_text='Mobile belongs to 1 group i.e acoustic/folk', extra_text =" as per Prediction by " + Model)
-    
-    elif prediction ==[1]:
-      return render_template('index.html', prediction_text='Mobile belongs to 2 group i.e Blues', extra_text ="as per Prediction by " + Model)
+      return render_template('index.html', prediction_text="NO heart disease", extra_text =" -- Prediction by " + Model)
 
-    elif prediction ==[2]:
-      return render_template('index.html', prediction_text='Mobile belongs to 3 group i.e Coumtry', extra_text ="as per Prediction by " + Model)
+    else :
+      return render_template('index.html', prediction_text='heart disease', extra_text =" -- Prediction by " + Model)
 
-    elif prediction ==[3]:
-      return render_template('index.html', prediction_text='Mobile belongs to 4 group i.e hip hop', extra_text ="as per Prediction by " + Model)
-
-    elif prediction ==[4]:
-      return render_template('index.html', prediction_text='Mobile belongs to 5 group i.e Indie_alt', extra_text ="as per Prediction by " + Model)
-
-    elif prediction ==[5]:
-      return render_template('index.html', prediction_text='Mobile belongs to 6 group i.e instrumental', extra_text ="as per Prediction by " + Model)
-
-    elif prediction ==[6]:
-      return render_template('index.html', prediction_text='Mobile belongs to 7 group i.e metal', extra_text ="as per Prediction by " + Model)
-
-    elif prediction ==[7]:
-      return render_template('index.html', prediction_text='Mobile belongs to 8 group i.e jazz', extra_text ="as per Prediction by " + Model)
-
-    elif prediction ==[8]:
-      return render_template('index.html', prediction_text='Mobile belongs to 9 group i.e pop', extra_text ="as per Prediction by " + Model)
-
-    else:
-      return render_template('index.html', prediction_text='Mobile belongs to 10 group i.e Rock', extra_text ="as per Prediction by " + Model)
-
-#---------------------------------------------------------
-
-@app.route('/aboutusnew')
-def aboutusnew():
-    return render_template('aboutus.html')
-
-#----------------------------------------------------------
-
-@app.route('/')
-def first():
-    return render_template('first.html')
-
-#----------------------------------------------------------
-
-@app.route('/mini')
-def mini():
-    return render_template('mini.html')
-  
-if __name__=="__main__":
-    app.run(debug=True)
+#app.run()
+if __name__ == "__main__":
+  app.run(debug=True)
 
