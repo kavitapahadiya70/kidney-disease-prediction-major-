@@ -1,1 +1,0 @@
-https://predict-on-survive-on-titanic.herokuapp.com/
