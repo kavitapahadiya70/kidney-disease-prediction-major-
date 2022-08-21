@@ -1,0 +1,229 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Machine Learning Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+        h2,h4 {
+            text-align: center;
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            color: #000;
+        }
+
+        .form1 {
+            /* background: salmon; */
+            
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            
+            height: fit-content;
+            flex-direction: column;
+            /* width: 500px; */
+            border-left-width: 250px;
+            border-right-width: 250px;
+            border: 2px solid #ccc;
+            /* padding: 30px; */
+            background: #ff0066;
+            /* border-radius: 15px; */
+            /* margin-right: 100px; */
+        }
+
+        .row{
+            width: 500px;
+            /* margin-left: 70px; */
+        }
+
+        .head {
+            color: #000;
+            background-color: white;
+            vertical-align: top;
+        }
+
+        .tail {
+            padding-top: 17px;
+            color: #000;
+            background-color: grey;
+            vertical-align: bottom;
+        }
+
+        .ans {
+            color: #ffffff;
+        }
+
+        button{
+            width: 200px;
+            margin-top: 15px;
+        }
+
+        /* style="color: #FFF;background-color: white;" */
+    </style>
+</head>
+
+<body>
+
+    <div class="head">
+    <nav style="width: 100%;" >
+         <a class="  navbar-brand" href="#" style="margin-left: 300px; background-color: gray; margin-top: 0px; margin-right: 0px; margin-bottom: 0px;">
+             <img style="max-height: auto; width:50%;" src="static/image/PIET logo with tagline.jpg" 
+             class="img-responsive" style="margin-top:0px; width: auto; height: auto; min-width:100%; min-height: auto;">
+            </div>  
+
+            
+      
+
+           
+        </a>
+        
+    </nav>
+    </div>
+    <div style="background-color: salmon;">
+        <a href="/aboutusnew" style="color: white; align-items: flex-end;">ABOUT US</a>
+        <a href="/mini" style="color: white; align-items: flex-end;">Mini Prediction Projects</a>
+      </div>
+
+
+    <div style="background-image: url(static/image/mus.jpg);">
+            <h1 style="margin-left: 500px; align-items: center; color:white; ">Machine Learning Project</h1>
+           
+               
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 " style=" padding: 30px; margin-left: 350px;">
+                <br><br>
+                <h4 style="color:white; text-align:center ; font-family:Georgia, 'Times New Roman', Times, serif;">This project is based on machine learning and data science with python. Through this project we can predict the Music Genre by Using Features of MUsic . Based on this input, our machine will predict Genre OF Music.Automating music classification can help to find valuable data such as trends, popular genres, and artists easily. Determining music genres is the very first step towards this direction.  </h4>
+              
+            </div>
+            <hr style="color:white ;">
+
+            <div class="col-12" style="color: #FFF;">
+                <img style="max-height:200px; max-width:1500px; margin-left: 550px; margin-top: 20px; margin-bottom: 20px;" src="static/image/musicg.png" 
+                class="img-responsive" style="margin-top:0px; width: auto; height: auto; min-width:100%; min-height: auto;">
+            </div>
+
+    </div>
+
+
+
+    <div class="form1">
+        <form action="{{ url_for('predict')}} "method="get" class="row g-3 my-4">
+         
+
+            <h3 style="color: white;font-family:Georgia, 'Times New Roman', Times, serif;">Features</h3>
+
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">danceability</label>
+                <input type="number" class="form-control" id="danceability" name="danceability" step="any" required="required" min="0" max="2000" placeholder="Enter danceability (0-1)">
+            </div>
+
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">energy</label>
+                <input type="number" class="form-control" id="energy" name="energy" step="any" required="required" min="0" max="3" placeholder="Enter energy(0-1)">
+            </div>
+
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">mode</label>
+                <input type="number" class="form-control" id="mode" name="mode" step="any" required="required" min="0" max="1" placeholder="Enter mode(0 or 1)">
+            </div>
+
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">speechiness</label>
+                <input type="number" class="form-control" id="speechiness" name="speechiness" step="any" required="required" min="0" max="64" placeholder="Enter speechiness(0-4)">
+            </div>
+
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">acoustiness</label>
+                <input type="number" class="form-control" id="acoustiness" name="acoustiness" step="any" required="required" min="0" max="2" placeholder="Enter acoustiness(0-1)">
+            </div>
+            
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">liveness</label>
+                <input type="number" class="form-control" id="liveness" name="liveness" step="any" required="required" min="0" max="20" placeholder="Enter liveness(0-1)">
+            </div>
+
+            <div class="col-12" style="color: #FFF;">
+                <label for="floatingInput" class="form-label">valence</label>
+                <input type="number" class="form-control" id="valence" name="valence" step="any" required="required" min="0" max="8" placeholder="Enter number of valence(0-1)">
+            </div>
+
+            
+
+            <div class="col-md-4" style="color: #FFF;">
+                <label for="inputState" class="form-label">Choose a Model for Prediction</label>
+                <select id="Model" name ="Model" step = "any" class="form-select" required>
+                    <option selected>Decision Tree</option>
+                    <option>KNN</option>
+                    <option>SVM</option>
+                    <option>Random Forest</option>
+                    <option>Naive Bayes</option>
+                </select>
+            </div>
+
+            <div class="col-12" >
+                <button type="submit" value="NB" name="NB" class="btn btn-outline-danger">Submit</button>
+            </div>
+        </form>
+        
+        
+        <p style="color: #FFF;">
+          {{prediction_text}}
+          {{extra_text}}
+        </p>
+
+    </div>
+
+
+    <div class="col-md-12;">
+        <center><h3 class="section-title" style="text-align: center; margin-top: 30px;">Sponsored by</h3></center>
+      </div>
+    
+    <br>
+    <br>
+
+<div>
+ <table style="padding-bottom: 20px; margin-bottom: 60px; ">
+<tr>
+    <th>
+        <img style="max-height: 200px; margin-left:500px; padding-bottom: 5px; " src="static/image/AICTEIdeaLabFooterLogo.png" alt="...">
+    </th>
+
+    <th>
+        <img style="max-height: 200px; margin-left:0px;" src="static/image/eNBA_logo.png" alt="..." height="300" width="300" >
+
+    </th>
+</tr>
+
+ </table>
+      </div>
+      
+
+  
+         
+
+    
+      <div class="fixed-bottom ">
+        <div class="bg-secondary " style="min-height: 40px; background-color: rgb(172, 169, 169);">
+
+            <marquee style="color:#fff; margin-top: 7px;">
+                <h9>Developed by Neha Khatri, Student of Computer Engineering, PIET</h9>
+            </marquee>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
